@@ -1,135 +1,333 @@
 /* configuração da imagem de fundo */
 .bgimage {
-    height:100vh;
+    height: 100vh;
     background: url('imagens/HeroClock.jpg');
-    background-size:cover;
-    position:relative;
+    background-size: cover;
+    background-position: center; /* Centraliza a imagem de fundo */
+    position: relative;
+    display: flex; /* Adiciona flex para centralizar o texto verticalmente */
+    align-items: center; /* Centraliza o texto verticalmente */
+    justify-content: center; /* Centraliza o texto horizontalmente */
 }
-/* configuração do texto */
+
+/* configuração do texto no hero */
 .hero_title {
     font-size: 4.5rem;
     font-weight: bold;
+    line-height: 1.2; /* Melhora a legibilidade em várias linhas */
+    margin-bottom: 1rem; /* Espaçamento abaixo do título */
 }
 .hero_desc {
     font-size: 2rem;
     font-weight: bold;
+    line-height: 1.2;
 }
 .hero-text {
-    text-align:center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    text-align: center;
+    /* Remover position absolute, top, left, transform se usar flexbox no .bgimage */
     color: white;
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Roboto', sans-serif;
+    padding: 0 15px; /* Adiciona um padding horizontal para telas menores */
 }
+
+/* Navbar */
 .navbar {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.7); /* Ligeiramente mais opaco */
+    transition: background-color 0.3s ease; /* Transição suave */
 }
-/* Altera a cor dos textos do navbar quando estão em hover (quando o mouse passa por cima) */
+.navbarScroll.navbarDark {
+    background-color: black;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: white !important; /* Mantenha se quiser branco por padrão */
+}
 .navbar-dark .navbar-nav .nav-link:hover {
-    color:beige !important;
+    color: beige !important;
 }
-.logonav{
+.logonav {
     width: 40px !important;
 }
-.clockAbout{
-    width: 50%;
+
+/* Seção de relógios */
+#clock .container.shadow-lg {
+    background-color: #fff; /* Fundo branco para os cards de produto */
+    border-radius: 8px; /* Cantos arredondados */
+    padding-bottom: 20px; /* Mais padding no fundo */
 }
-.clockPromo{
-    width: 40%;
-    margin-left: 57%;
+
+/* Item de produto individual */
+#clock .col-lg-3 {
+    padding: 15px; /* Padding dentro de cada coluna para espaçamento */
+    display: flex; /* Transforma a coluna em um flex container */
+    flex-direction: column; /* Conteúdo em coluna */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    text-align: center; /* Centraliza o texto */
+    border: 1px solid #eee; /* Borda sutil para separar os produtos */
+    border-radius: 8px;
+    margin-bottom: 20px; /* Espaçamento entre as linhas de produtos */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sombra leve */
+    transition: transform 0.2s ease-in-out;
 }
-.promo{
-    margin: 10%;
-    font-family: 'Segoe UI', 'Roboto',  sans-serif;
-    font-weight: bold;
-    font-variant: small-caps;
-    font-size: 1em;
-    margin-left: 35%;
+#clock .col-lg-3:hover {
+    transform: translateY(-5px); /* Efeito de "subir" no hover */
 }
-.promo38{
-    background-color: burlywood;
-    width: 10%;
-    margin-left: 57%;
-    font-size: 1.5em;
-    border-radius: 25%;
+
+
+.clockAbout {
+    width: 80%; /* Ajusta a largura da imagem para 80% da coluna */
+    max-width: 200px; /* Limite máximo para a imagem */
+    height: auto;
+    display: block; /* Garante que a imagem se comporte como bloco */
+    margin: 0 auto 15px auto; /* Centraliza a imagem e adiciona margem inferior */
 }
-.vendido{
-    border-radius: 50%;
-    background-color: burlywood;
-    margin-left: 57%;
+/* O ajuste para o relógio Lacoste Verde que tem style="width: 58%;" no HTML deve ser removido,
+   ou você pode criar uma classe específica para ele se realmente precisar de uma largura diferente */
+.clockAbout[style="width: 58%;"] { /* Use essa regra apenas se não puder remover o inline style */
+    width: 80% !important; /* Sobrescreve o inline style para manter a consistência */
+    max-width: 200px !important;
 }
-.info_mais_vendido{
-    margin-left: 57%;
-}
-.marcalogo{
-    width: 50%;
-    border-bottom: 1px solid;
-    border-radius: 50%;
-}
-.infoclock{
+
+
+.infoclock {
     font-weight: bold;
     font-style: italic;
-}
-/* tamanho dos ícones */
-.social-icons {
-    font-size: 36px;
-    cursor: pointer;
+    color: #333; /* Cor mais escura para o preço */
 }
 
-/* cor quando selecionado */
-.fa-linkedin:hover {
-    color: black;
-}
-.gmail-icon i {
-    color: white;
-}
-.gmail-icon i:hover {
-    color: black;
-}
-
-/* cor padrão */
-.fab {
-    color: white;
-}
-/* cor padrão de fundo */
-#footer {
-    background-color: burlywood;
-    text-align: center;
-}
-.copy{
-    font-weight: 200;
-    font-size: 20px;
-    padding-top: 10px;
-    font-style: italic;
-}
-
-/* Estilize o elemento details */
+/* Estilo para o elemento details */
 details {
-    cursor: pointer; /* Mude o cursor para uma mãozinha para indicar que é clicável */
+    cursor: pointer;
+    width: 100%; /* Ocupa a largura total da coluna */
+    text-align: left; /* Alinha o conteúdo interno do details à esquerda */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px; /* Espaçamento acima */
+    font-size: 0.9em;
 }
-  
-  /* Estilo para o elemento details quando o mouse estiver sobre ele */
+details ul {
+    list-style: none; /* Remove bolinhas da lista */
+    padding: 0;
+    margin: 0;
+}
+details summary { /* Estilize o cabeçalho do details */
+    font-weight: bold;
+    color: #555;
+}
 details:hover {
-    background-color: #f0f0f0; /* Altere a cor de fundo quando hover */
+    background-color: #e9e9e9;
 }
 
+
+/* Botão Comprar */
 .btn-comprar {
     background-color: burlywood;
     color: black;
-    border-radius: 10px; /* Valor do raio para bordas arredondadas */
+    border: none; /* Remova a borda padrão se quiser */
+    padding: 10px 20px;
+    border-radius: 10px;
     font-weight: bold;
+    margin-top: auto; /* Empurra o botão para o final do flex container */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 .btn-comprar:hover {
-    background-color: black; /* Cor de fundo ao passar o mouse */
-    color: #fff; /* Cor do texto ao passar o mouse */
+    background-color: black;
+    color: #fff;
 }
 
-.sobrenos{
-    color: black;
-    font-family: 'Roboto';
+
+/* Seção de Promoção */
+#promocao .container.shadow-lg {
+    background-color: #fff; /* Fundo branco para a seção de promoção */
+    border-radius: 8px;
+    padding: 30px; /* Padding interno */
+    margin-top: 40px; /* Margem superior para separar */
+}
+
+#promocao .col-lg-4, #promocao .col-lg-6 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente o conteúdo */
+    text-align: center; /* Centraliza o texto */
+    padding-top: 20px; /* Ajusta o padding superior para telas menores */
+}
+
+.clockPromo {
+    width: 80%; /* Ajuste a largura para ser responsiva */
+    max-width: 250px; /* Limite o tamanho máximo */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centraliza a imagem */
+}
+.promo {
+    margin: 0; /* Remover margens problemáticas */
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
     font-weight: bold;
-    font-size: 15px;
+    font-variant: small-caps;
+    font-size: 1em;
+    padding: 15px; /* Padding interno */
+}
+.promo38, .vendido {
+    background-color: burlywood;
+    width: fit-content; /* Ajusta a largura ao conteúdo */
+    padding: 5px 15px;
+    border-radius: 25px; /* Mais arredondado */
+    font-size: 1.5em;
+    margin: 10px auto; /* Centraliza o elemento */
+}
+.info_mais_vendido {
+    margin: 0; /* Remover margem problemática */
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.marcalogo {
+    width: 60%; /* Mais responsivo */
+    max-width: 300px; /* Limite o tamanho máximo */
+    height: auto;
+    border-bottom: 1px solid;
+    border-radius: 50%;
+    margin-top: 40px; /* Espaçamento */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Footer */
+#footer {
+    background-color: burlywood;
+    text-align: center;
+    padding: 20px 0; /* Padding interno do footer */
+    margin-top: 40px; /* Espaçamento acima do footer */
+}
+.copy {
+    font-weight: 200;
+    font-size: 16px; /* Ajusta o tamanho da fonte */
+    padding-top: 10px;
+    font-style: italic;
+    color: #333; /* Cor do texto do copyright */
+}
+.social-icons a {
+    color: white; /* Cor padrão dos ícones */
+    font-size: 30px; /* Tamanho dos ícones */
+    margin: 0 10px; /* Espaçamento entre os ícones */
+}
+.fa-linkedin:hover, .gmail-icon i:hover {
+    color: black; /* Cor ao passar o mouse */
+}
+.gmail-icon i {
+    color: white; /* Garante que o ícone do gmail comece branco */
+}
+
+/* MEDIA QUERIES PARA RESPONSIVIDADE */
+
+/* Telas menores que 992px (Dispositivos médios e pequenos) */
+@media (max-width: 991.98px) {
+    .hero_title {
+        font-size: 3rem; /* Ajusta tamanho da fonte */
+    }
+    .hero_desc {
+        font-size: 1.5rem; /* Ajusta tamanho da fonte */
+    }
+    .hero-text {
+        padding: 0 20px; /* Aumenta o padding para melhor leitura */
+    }
+
+    /* Produtos: Em telas médias, 2 por linha */
+    #clock .col-lg-3 {
+        width: 50%; /* Faz com que ocupe metade da largura */
+        flex: 0 0 50%; /* Garante que ocupe 50% */
+        max-width: 50%;
+    }
+    #clock .row {
+        justify-content: center; /* Centraliza os itens quando há 2 por linha */
+    }
+
+    /* Promoção: Organiza verticalmente */
+    #promocao .col-lg-4, #promocao .col-lg-6 {
+        width: 100%; /* Ocupa a largura total */
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding-top: 0; /* Remove padding extra */
+        padding-bottom: 20px; /* Adiciona padding na parte inferior */
+    }
+    .clockPromo {
+        width: 60%; /* Ajusta imagem da promoção para tela menor */
+        max-width: 200px;
+        margin-top: 20px;
+    }
+    .promo, .promo38, .vendido, .info_mais_vendido {
+        margin: 10px auto; /* Centraliza elementos */
+        width: auto; /* Ajusta largura */
+    }
+    .promo38, .vendido {
+        font-size: 1.2em; /* Diminui fonte dos selos */
+    }
+}
+
+/* Telas menores que 767.98px (Celulares) */
+@media (max-width: 767.98px) {
+    .hero_title {
+        font-size: 2.2rem;
+    }
+    .hero_desc {
+        font-size: 1.2rem;
+    }
+    .hero-text {
+        padding: 0 10px;
+    }
+
+    /* Produtos: 1 por linha em telas muito pequenas */
+    #clock .col-lg-3 {
+        width: 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    /* Outros ajustes gerais para mobile */
+    #clock .container.shadow-lg, #promocao .container.shadow-lg {
+        padding: 15px; /* Reduz o padding geral dos containers */
+    }
+    .marcalogo {
+        width: 80%; /* Logo maior em mobile */
+    }
+    .copy {
+        font-size: 14px; /* Diminui o texto do copyright */
+    }
+    .social-icons a {
+        font-size: 24px; /* Diminui os ícones sociais */
+    }
+}
+
+/* Ajuste para garantir o espaçamento entre as seções */
+#clock, #promocao {
+    margin-top: 4rem;
+    padding-top: 4rem;
+}
+/* A seção sobre nós (sobre.html) provavelmente precisa dos seus próprios estilos de responsividade */
+#sobre {
+    margin-top: 4rem;
+    padding-top: 4rem;
+    background-color: #f8f9fa; /* Fundo claro para a seção sobre nós */
+}
+.section-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.sobrenos {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+/* Garante que a imagem "Sobre Nós" seja responsiva */
+#sobre .img-fluid {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }

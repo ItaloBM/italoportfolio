@@ -1,3 +1,5 @@
+
+
 /* configuração da imagem de fundo */
 .bgimage {
     height:100vh;
@@ -106,13 +108,100 @@
 /* Botão personalizado com cor definida */
 .btn-custom {
     background-color: #93C0D7 !important; 
-    border-color: #93C0D7 !important; /* Cor da borda */
-    color: white !important; /* Cor do texto */
+    border-color: #93C0D7 !important; 
+    color: white !important; 
 }
 
 /* Estilo ao passar o mouse sobre o botão */
 .btn-custom:hover {
-    background-color: #001E38 !important; /* Cor mais escura para o efeito de hover */
-    border-color: #001E38 !important; /* Cor da borda ao passar o mouse */
-    color: white !important; /* Cor do texto ao passar o mouse */
+    background-color: #001E38 !important; 
+    border-color: #001E38 !important; 
+    color: white !important; 
+}
+
+/* Seção Portfolio - Ajustes para altura uniforme dos cards */
+#portfolio .card {
+    height: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    transition: transform 0.2s ease-in-out; 
+}
+
+#portfolio .card:hover {
+    transform: translateY(-5px); 
+}
+
+#portfolio .card-img-top {
+    height: 200px; 
+    object-fit: cover; 
+    width: 100%; 
+    border-bottom: 1px solid #eee; 
+}
+
+#portfolio .card-body {
+    display: flex; 
+    flex-direction: column; 
+    flex-grow: 1; 
+    justify-content: space-between; 
+    padding: 20px; 
+}
+
+#portfolio .card-title {
+    min-height: 50px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    margin-bottom: 10px; 
+    color: #333; 
+}
+
+#portfolio .card-text {
+    flex-grow: 1; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 4;
+    line-clamp: 4; 
+    -webkit-box-orient: vertical;
+    overflow: hidden; 
+    margin-bottom: 15px; 
+    color: #555; 
+    line-height: 1.4; 
+}
+
+#portfolio .card-body .text-center { 
+    margin-top: auto; 
+    padding-top: 15px; 
+}
+
+#portfolio {
+    background-color: #f8f9fa; 
+    padding-bottom: 4rem; 
+}
+
+/* Estilos para o mapa responsivo */
+.map-responsive {
+    overflow: hidden;
+    padding-bottom: 75%; /* Proporção 4:3 (450px de altura para 600px de largura original = 75%) */
+    position: relative;
+    height: 0;
+}
+
+.map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border-radius: 8px; /* Adiciona bordas arredondadas ao mapa */
+}
+
+/* Ajuste para telas menores: garantir que o mapa ocupe 100% da largura em mobile */
+@media (max-width: 991.98px) { /* Para tablets e celulares */
+    #content .col-lg-6 {
+        margin-bottom: 30px; /* Espaçamento entre o mapa e o formulário em telas pequenas */
+    }
 }
